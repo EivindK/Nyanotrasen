@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: AutolatheMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: autolathe machine board
@@ -520,6 +520,28 @@
       difficulty: 2
       recipes:
         - SeedExtractorMachineCircuitboard
+
+- type: entity
+  id: SeedAnalyzerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: seed analyzer machine board
+  description: A machine printed circuit board for a seed analyzer.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: SeedAnalyzer
+      requirements:
+        Manipulator: 2
+        Capacitor: 1
+      materialRequirements:
+        # replacing the console screen
+        Glass: 1
+        Cable: 2
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - SeedAnalyzerMachineCircuitboard
 
 - type: entity
   id: SMESMachineCircuitboard

@@ -1,0 +1,7 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+            xmlns:ui="clr-namespace:Content.Client.Botany.UI"
+            Title="{Loc seed-analyzer-menu-title}" MinSize="512 256" SetSize="512 256">
+    <BoxContainer Orientation="Horizontal">
+        <Button Name="EjectButton" Text="{Loc seed-analyzer-eject-button}"/>
+    </BoxContainer>
+</DefaultWindow>

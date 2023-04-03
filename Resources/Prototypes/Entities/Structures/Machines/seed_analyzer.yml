@@ -1,0 +1,53 @@
+- type: entity
+  id: SeedAnalyzer
+  name: seed analyzer
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  description: Analyzes seeds from produce.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/seed_analyzer.rsi
+    snapCardinals: true
+    layers:
+    - state: seedanalyzer-off
+    - state: seedanalyzer-unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    netsync: false
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+        bounds: "-0.25,-0.4,0.25,0.4"
+      density: 190
+      mask:
+      - MachineMask
+      layer:
+      - MachineLayer
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: SeedAnalyzer
+    seedSlot:
+      whitelist:
+        components:
+          - Seed
+  - type: Machine
+    board: SeedAnalyzerMachineCircuitboard
+  - type: ActivatableUI
+    key: enum.SeedAnalyzerUIKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+    - key: enum.SeedAnalyzerUIKey.Key
+      type: SeedAnalyzerBoundUserInterface
+  - type: ApcPowerReceiver
+    powerLoad: 300
+  - type: UpgradePowerDraw
+    powerDrawMultiplier: 0.75
+    scaling: Exponential
